@@ -31,7 +31,6 @@
 
 package com.google.api.pathtemplate;
 
-import com.google.api.core.BetaApi;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Sets;
@@ -269,25 +268,25 @@ public class TemplatedResourceName implements Map<String, String> {
   @Override
   @Deprecated
   public String put(String key, String value) {
-    return values.put(key, value);
+    throw new UnsupportedOperationException("This is an immutable map.");
   }
 
   @Override
   @Deprecated
   public String remove(Object key) {
-    return values.remove(key);
+    throw new UnsupportedOperationException("This is an immutable map.");
   }
 
   @Override
   @Deprecated
   public void putAll(Map<? extends String, ? extends String> m) {
-    values.putAll(m);
+    throw new UnsupportedOperationException("This is an immutable map.");
   }
 
   @Override
   @Deprecated
   public void clear() {
-    values.clear();
+    throw new UnsupportedOperationException("This is an immutable map.");
   }
 
   @Override
