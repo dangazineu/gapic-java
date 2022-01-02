@@ -21,6 +21,15 @@ maven_install(
         "com.google.auto.value:auto-value-annotations:1.8.2",
         "com.google.code.findbugs:jsr305:3.0.2",
         "com.google.truth:truth:1.1.3",
+        "com.google.auth:google-auth-library-credentials:1.2.1",
+        "com.google.auth:google-auth-library-oauth2-http:1.2.1",
+        "org.threeten:threetenbp:1.5.0",
+        "com.google.code.gson:gson:2.8.6",
+        "com.google.http-client:google-http-client-gson:1.40.1",
+        "com.google.http-client:google-http-client:1.40.1",
+        "io.opencensus:opencensus-api:0.28.0",
+        "org.mockito:mockito-core:2.28.2",
+        "io.grpc:grpc-context:1.42.1"
     ],
     repositories = [
         "https://maven.google.com",
