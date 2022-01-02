@@ -18,3 +18,21 @@ java_export(
     ],
     maven_coordinates = "com.google.api:api-common:%s" % GAPIC_JAVA_VERSION,
 )
+
+java_export(
+    name = "api-common-tests",
+    srcs = glob(["src/test/java/**/*.java"]),
+    deps = [
+        "api-common",
+        "@maven//:com_google_guava_guava",
+        "@maven//:com_google_truth_truth",
+        "@maven//:junit_junit",
+    ],
+    maven_coordinates = "com.google.api:api-common-tests:%s" % GAPIC_JAVA_VERSION,
+)
+
+java_test(
+    name = "tests",
+    test_class = "com.google.api.TestSuite",
+    runtime_deps = ["api-common-tests"]
+)
