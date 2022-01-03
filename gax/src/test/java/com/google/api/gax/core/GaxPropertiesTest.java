@@ -33,14 +33,13 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.regex.Pattern;
 import org.junit.Test;
-import org.junit.Ignore;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
 @RunWith(JUnit4.class)
 public class GaxPropertiesTest {
 
-  @Test @Ignore
+  @Test
   public void testGaxVersion() {
     String gaxVersion = GaxProperties.getGaxVersion();
     assertTrue(Pattern.compile("^\\d+\\.\\d+\\.\\d+").matcher(gaxVersion).find());

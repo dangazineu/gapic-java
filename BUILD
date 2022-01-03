@@ -7,3 +7,7 @@ java_plugin(
     ],
     deps = ["@maven//:com_google_auto_value_auto_value"],
 )
+
+# This file is not needed for dependency management anymore
+# TODO remove runtime dependency on this file, and delete this target.
+exports_files(["dependencies.properties"])

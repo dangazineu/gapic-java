@@ -13,6 +13,7 @@ _JAVA_COPTS = [
 java_export(
     name = "gax",
     srcs = glob(["src/main/java/**/*.java"]),
+    resources = ["//:dependencies.properties"],
     javacopts = _JAVA_COPTS,
     plugins = ["//:autovalue_plugin"],
     visibility = ["//visibility:public"],
