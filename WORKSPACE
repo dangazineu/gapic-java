@@ -27,9 +27,20 @@ maven_install(
         "com.google.code.gson:gson:2.8.6",
         "com.google.http-client:google-http-client-gson:1.40.1",
         "com.google.http-client:google-http-client:1.40.1",
+        "com.google.protobuf:protobuf-java:3.19.1",
+#        This library is generated from protos in googleapis/googleapis
+#       TODO replace this with internal reference
+        "com.google.api.grpc:proto-google-common-protos:2.7.0",
+        "com.google.api.grpc:grpc-google-common-protos:2.7.0",
         "io.opencensus:opencensus-api:0.28.0",
         "org.mockito:mockito-core:2.28.2",
-        "io.grpc:grpc-context:1.42.1"
+        "io.grpc:grpc-context:1.42.1",
+        "io.grpc:grpc-api:1.42.1",
+        "io.grpc:grpc-alts:1.42.1",
+        "io.grpc:grpc-auth:1.42.1",
+        "io.grpc:grpc-core:1.42.1",
+        "io.grpc:grpc-stub:1.42.1",
+        "io.grpc:grpc-protobuf:1.42.1",
     ],
     repositories = [
         "https://maven.google.com",
