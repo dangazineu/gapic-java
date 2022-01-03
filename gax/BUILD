@@ -9,33 +9,33 @@ _JAVA_COPTS = [
     "1.8",
 ]
 
-
 java_export(
     name = "gax",
     srcs = glob(["src/main/java/**/*.java"]),
-    resources = ["//:dependencies.properties"],
     javacopts = _JAVA_COPTS,
+    maven_coordinates = "com.google.api:gax:%s" % GAPIC_JAVA_VERSION,
     plugins = ["//:autovalue_plugin"],
+    resources = ["//:dependencies.properties"],
     visibility = ["//visibility:public"],
     deps = [
-        "//api-common:api-common",
-        "@maven//:com_google_auto_value_auto_value_annotations",
+        "//api-common",
         "@maven//:com_google_auth_google_auth_library_credentials",
         "@maven//:com_google_auth_google_auth_library_oauth2_http",
-        "@maven//:org_threeten_threetenbp",
+        "@maven//:com_google_auto_value_auto_value_annotations",
         "@maven//:com_google_code_findbugs_jsr305",
         "@maven//:com_google_guava_guava",
         "@maven//:com_google_http_client_google_http_client",
         "@maven//:com_google_http_client_google_http_client_gson",
-        "@maven//:io_opencensus_opencensus_api"
+        "@maven//:io_opencensus_opencensus_api",
+        "@maven//:org_threeten_threetenbp",
     ],
-    maven_coordinates = "com.google.api:gax:%s" % GAPIC_JAVA_VERSION,
 )
 
 java_export(
     name = "gax-tests",
     srcs = glob(["src/test/java/**/*.java"]),
     javacopts = _JAVA_COPTS,
+    maven_coordinates = "com.google.api:gax-tests:%s" % GAPIC_JAVA_VERSION,
     plugins = ["//:autovalue_plugin"],
     resources = glob([
         "src/test/resources/com/google/api/gax/rpc/mtls/mtls_context_aware_metadata.json",
@@ -44,22 +44,22 @@ java_export(
     visibility = ["//visibility:public"],
     deps = [
         ":gax",
-        "//api-common:api-common",
-        "@maven//:com_google_auto_value_auto_value_annotations",
-        "@maven//:junit_junit",
-        "@maven//:com_google_truth_truth",
-        "@maven//:org_mockito_mockito_core",
-        "@maven//:io_grpc_grpc_context",
-        "@maven//:io_opencensus_opencensus_api",
-        "@maven//:com_google_code_findbugs_jsr305",
-        "@maven//:com_google_guava_guava",
-        "@maven//:org_threeten_threetenbp",
-        "@maven//:com_google_http_client_google_http_client",
+        "//api-common",
         "@maven//:com_google_auth_google_auth_library_credentials",
         "@maven//:com_google_auth_google_auth_library_oauth2_http",
+        "@maven//:com_google_auto_value_auto_value_annotations",
+        "@maven//:com_google_code_findbugs_jsr305",
+        "@maven//:com_google_guava_guava",
+        "@maven//:com_google_http_client_google_http_client",
+        "@maven//:com_google_truth_truth",
+        "@maven//:io_grpc_grpc_context",
+        "@maven//:io_opencensus_opencensus_api",
+        "@maven//:junit_junit",
+        "@maven//:org_mockito_mockito_core",
+        "@maven//:org_threeten_threetenbp",
     ],
-    maven_coordinates = "com.google.api:gax-tests:%s" % GAPIC_JAVA_VERSION,
 )
+
 #
 java_tests(
     name = "tests",
@@ -69,10 +69,4 @@ java_tests(
         exclude = ["src/test/java/**/Abstract*Test.java"],
     ),
     runtime_deps = [":gax-tests"],
-)
-
-google_java_format(
-    name = "google_java_format",
-    srcs = glob(["src/**/*.java"]),
-    formatter = "//:google_java_format_binary",
 )

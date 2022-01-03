@@ -12,13 +12,14 @@ _JAVA_COPTS = [
 java_export(
     name = "gax-grpc",
     srcs = glob(["src/main/java/**/*.java"]),
-    resources = ["//:dependencies.properties"],
     javacopts = _JAVA_COPTS,
+    maven_coordinates = "com.google.api:gax-grpc:%s" % GAPIC_JAVA_VERSION,
     plugins = ["//:autovalue_plugin"],
+    resources = ["//:dependencies.properties"],
     visibility = ["//visibility:public"],
     deps = [
-        "//gax:gax",
-        "//api-common:api-common",
+        "//gax",
+        "//api-common",
         "@maven//:com_google_auto_value_auto_value_annotations",
         "@maven//:com_google_auth_google_auth_library_credentials",
         "@maven//:com_google_auth_google_auth_library_oauth2_http",
@@ -26,7 +27,7 @@ java_export(
         "@maven//:com_google_guava_guava",
         "@maven//:com_google_http_client_google_http_client",
         "@maven//:com_google_protobuf_protobuf_java",
-#        TODO replace this with an internal module reference
+        #        TODO replace this with an internal module reference
         "@maven//:com_google_api_grpc_proto_google_common_protos",
         "@maven//:org_threeten_threetenbp",
         "@maven//:io_grpc_grpc_api",
@@ -37,26 +38,26 @@ java_export(
         "@maven//:io_grpc_grpc_core",
         "@maven//:io_grpc_grpc_stub",
     ],
-    maven_coordinates = "com.google.api:gax-grpc:%s" % GAPIC_JAVA_VERSION,
 )
 
 java_export(
     name = "gax-grpc-tests",
     srcs = glob(["src/test/java/**/*.java"]),
     javacopts = _JAVA_COPTS,
+    maven_coordinates = "com.google.api:gax-grpc-tests:%s" % GAPIC_JAVA_VERSION,
     plugins = ["//:autovalue_plugin"],
     visibility = ["//visibility:public"],
     deps = [
-        "//api-common:api-common",
+        "//api-common",
         ":gax-grpc",
-        "//gax:gax",
+        "//gax",
         "//gax:gax-tests",
         "@maven//:com_google_auth_google_auth_library_credentials",
         "@maven//:com_google_auth_google_auth_library_oauth2_http",
         "@maven//:com_google_code_findbugs_jsr305",
         "@maven//:com_google_guava_guava",
         "@maven//:com_google_protobuf_protobuf_java",
-#        TODO replace this with an internal module reference
+        #        TODO replace this with an internal module reference
         "@maven//:com_google_api_grpc_proto_google_common_protos",
         "@maven//:com_google_api_grpc_grpc_google_common_protos",
         "@maven//:org_threeten_threetenbp",
@@ -70,7 +71,6 @@ java_export(
         "@maven//:com_google_truth_truth",
         "@maven//:org_mockito_mockito_core",
     ],
-    maven_coordinates = "com.google.api:gax-grpc-tests:%s" % GAPIC_JAVA_VERSION,
 )
 
 java_tests(
@@ -83,10 +83,4 @@ java_tests(
         ],
     ),
     runtime_deps = [":gax-grpc-tests"],
-)
-
-google_java_format(
-    name = "google_java_format",
-    srcs = glob(["src/**/*.java"]),
-    formatter = "//:google_java_format_binary",
 )
