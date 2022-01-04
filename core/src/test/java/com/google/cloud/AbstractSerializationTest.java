@@ -35,7 +35,7 @@ import org.junit.Test;
  * for proper serialization. Both methods can return {@code null} if no such object needs to be
  * tested.
  */
-public abstract class BaseSerializationTest {
+public abstract class AbstractSerializationTest {
 
   /** Returns all objects for which correct serialization must be tested. */
   protected abstract Serializable[] serializableObjects();

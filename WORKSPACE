@@ -17,6 +17,7 @@ maven_install(
     artifacts = [
         "junit:junit:4.12",
         "com.google.guava:guava:31.0.1-jre",
+        "com.google.guava:guava-testlib:31.0.1-jre",
         "com.google.auto.value:auto-value:1.8.2",
         "com.google.auto.value:auto-value-annotations:1.8.2",
         "com.google.code.findbugs:jsr305:3.0.2",
@@ -28,12 +29,15 @@ maven_install(
         "com.google.http-client:google-http-client-gson:1.40.1",
         "com.google.http-client:google-http-client:1.40.1",
         "com.google.protobuf:protobuf-java:3.19.1",
-#        This library is generated from protos in googleapis/googleapis
+#        The following libraries are generated from protos in googleapis/googleapis
 #       TODO replace this with internal reference
         "com.google.api.grpc:proto-google-common-protos:2.7.0",
         "com.google.api.grpc:grpc-google-common-protos:2.7.0",
+        "com.google.api.grpc:proto-google-iam-v1:1.2.0",
+
         "io.opencensus:opencensus-api:0.28.0",
         "org.mockito:mockito-core:2.28.2",
+        "org.easymock:easymock:3.6",
         "io.grpc:grpc-context:1.42.1",
         "io.grpc:grpc-api:1.42.1",
         "io.grpc:grpc-alts:1.42.1",
