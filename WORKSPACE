@@ -29,13 +29,17 @@ maven_install(
         "com.google.http-client:google-http-client-gson:1.40.1",
         "com.google.http-client:google-http-client:1.40.1",
         "com.google.protobuf:protobuf-java:3.19.1",
-#        The following libraries are generated from protos in googleapis/googleapis
-#       TODO replace this with internal reference
+
+#       TODO replace the following com.google.api* libraries with internal references
         "com.google.api.grpc:proto-google-common-protos:2.7.0",
         "com.google.api.grpc:grpc-google-common-protos:2.7.0",
         "com.google.api.grpc:proto-google-iam-v1:1.2.0",
+        "com.google.api-client:google-api-client:1.32.2",
+        # FIXME it doesn't seem correct for the core library to have dependency on appengine
+        "com.google.http-client:google-http-client-appengine:1.40.1",
 
         "io.opencensus:opencensus-api:0.28.0",
+        "io.opencensus:opencensus-contrib-http-util:0.28.0",
         "org.mockito:mockito-core:2.28.2",
         "org.easymock:easymock:3.6",
         "io.grpc:grpc-context:1.42.1",
