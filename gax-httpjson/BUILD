@@ -19,6 +19,7 @@ java_export(
     deps = [
         "//gax",
         "//api-common",
+        "//common-protos:common-protos-proto",
         "@maven//:com_google_code_gson_gson",
         "@maven//:com_google_auto_value_auto_value_annotations",
         "@maven//:com_google_auth_google_auth_library_credentials",
@@ -29,8 +30,6 @@ java_export(
         "@maven//:com_google_http_client_google_http_client_gson",
         "@maven//:com_google_protobuf_protobuf_java",
         "@maven//:com_google_protobuf_protobuf_java_util",
-        #        TODO replace this with an internal module reference
-        "@maven//:com_google_api_grpc_proto_google_common_protos",
         "@maven//:org_threeten_threetenbp",
     ],
     maven_coordinates = "com.google.api:gax-httpjson:%s" % GAPIC_JAVA_VERSION,
@@ -47,6 +46,7 @@ java_export(
         "//api-common",
         "//gax",
         "//gax:gax-tests",
+        "//common-protos:common-protos-proto",
         "@maven//:com_google_code_gson_gson",
         "@maven//:com_google_auth_google_auth_library_credentials",
         "@maven//:com_google_code_findbugs_jsr305",
@@ -54,8 +54,6 @@ java_export(
         "@maven//:com_google_http_client_google_http_client",
         "@maven//:com_google_http_client_google_http_client_gson",
         "@maven//:com_google_protobuf_protobuf_java",
-        #        TODO replace this with an internal module reference
-        "@maven//:com_google_api_grpc_proto_google_common_protos",
         "@maven//:org_threeten_threetenbp",
         "@maven//:junit_junit",
         "@maven//:com_google_truth_truth",

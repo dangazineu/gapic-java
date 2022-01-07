@@ -19,6 +19,7 @@ java_export(
     deps = [
         "//api-common",
         "//gax",
+        "//common-protos:common-protos-proto",
         "@maven//:com_google_auto_value_auto_value_annotations",
         "@maven//:com_google_auth_google_auth_library_credentials",
         "@maven//:com_google_auth_google_auth_library_oauth2_http",
@@ -28,8 +29,6 @@ java_export(
         "@maven//:com_google_protobuf_protobuf_java_util",
         "@maven//:com_google_code_findbugs_jsr305",
         "@maven//:com_google_guava_guava",
-        #        TODO replace this with an internal module reference
-        "@maven//:com_google_api_grpc_proto_google_common_protos",
         "@maven//:com_google_api_grpc_proto_google_iam_v1",
         "@maven//:org_threeten_threetenbp",
     ],

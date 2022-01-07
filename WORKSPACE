@@ -31,7 +31,6 @@ maven_install(
         "com.google.protobuf:protobuf-java:3.19.1",
 
 #       TODO replace the following com.google.api* libraries with internal references
-        "com.google.api.grpc:proto-google-common-protos:2.7.0",
         "com.google.api.grpc:grpc-google-common-protos:2.7.0",
         "com.google.api.grpc:proto-google-iam-v1:1.2.0",
         "com.google.api-client:google-api-client:1.32.2",
@@ -60,3 +59,31 @@ load("@rules_jvm_external//:repositories.bzl", "rules_jvm_external_deps")
 rules_jvm_external_deps()
 load("@rules_jvm_external//:setup.bzl", "rules_jvm_external_setup")
 rules_jvm_external_setup()
+
+http_archive(
+    name = "com_google_googleapis",
+     strip_prefix = "googleapis-4079d6539fa85b1d5829cfe2369f1ff054f4db77",
+     urls = [
+         # FIXME Referencing a branch from my own fork of googleapis without any language-specific rules.
+         #  Ideally the central googleapis repository would only concern itself with exposing proto files
+         "https://github.com/danielgazineu/googleapis/archive/4079d6539fa85b1d5829cfe2369f1ff054f4db77.zip",
+     ],
+)
+# This is not needed if we don't rely on googleapis language-specific rules.
+#load("@com_google_googleapis//:repository_rules.bzl", "switched_rules_by_language")
+#switched_rules_by_language(
+#    name = "com_google_googleapis_imports",
+#    gapic = True,
+#    grpc = True,
+#    java = True,
+#)
+
+# This is to satisfy com_google_googleapis usage of protobuf
+http_archive(
+    name = "com_google_protobuf",
+    sha256 = "9111bf0b542b631165fadbd80aa60e7fb25b25311c532139ed2089d76ddf6dd7",
+    strip_prefix = "protobuf-3.18.1",
+    urls = ["https://github.com/protocolbuffers/protobuf/archive/v3.18.1.tar.gz"],
+)
+load("@com_google_protobuf//:protobuf_deps.bzl", "protobuf_deps")
+protobuf_deps()

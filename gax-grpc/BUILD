@@ -20,6 +20,7 @@ java_export(
     deps = [
         "//gax",
         "//api-common",
+        "//common-protos:common-protos-proto",
         "@maven//:com_google_auto_value_auto_value_annotations",
         "@maven//:com_google_auth_google_auth_library_credentials",
         "@maven//:com_google_auth_google_auth_library_oauth2_http",
@@ -27,8 +28,6 @@ java_export(
         "@maven//:com_google_guava_guava",
         "@maven//:com_google_http_client_google_http_client",
         "@maven//:com_google_protobuf_protobuf_java",
-        #        TODO replace this with an internal module reference
-        "@maven//:com_google_api_grpc_proto_google_common_protos",
         "@maven//:org_threeten_threetenbp",
         "@maven//:io_grpc_grpc_api",
         "@maven//:io_grpc_grpc_alts",
@@ -49,6 +48,7 @@ java_export(
     visibility = ["//visibility:public"],
     deps = [
         "//api-common",
+        "//common-protos:common-protos-proto",
         ":gax-grpc",
         "//gax",
         "//gax:gax-tests",
@@ -58,7 +58,6 @@ java_export(
         "@maven//:com_google_guava_guava",
         "@maven//:com_google_protobuf_protobuf_java",
         #        TODO replace this with an internal module reference
-        "@maven//:com_google_api_grpc_proto_google_common_protos",
         "@maven//:com_google_api_grpc_grpc_google_common_protos",
         "@maven//:org_threeten_threetenbp",
         "@maven//:io_grpc_grpc_api",
