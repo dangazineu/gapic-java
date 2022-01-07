@@ -62,21 +62,15 @@ rules_jvm_external_setup()
 
 http_archive(
     name = "com_google_googleapis",
-     strip_prefix = "googleapis-4079d6539fa85b1d5829cfe2369f1ff054f4db77",
-     urls = [
-         # FIXME Referencing a branch from my own fork of googleapis without any language-specific rules.
-         #  Ideally the central googleapis repository would only concern itself with exposing proto files
-         "https://github.com/danielgazineu/googleapis/archive/4079d6539fa85b1d5829cfe2369f1ff054f4db77.zip",
-     ],
+    strip_prefix = "googleapis-94ea1c429a6c6412fb2c06ffe9063c872162dfac",
+    urls = [
+        "https://github.com/googleapis/googleapis/archive/94ea1c429a6c6412fb2c06ffe9063c872162dfac.zip",
+    ],
 )
-# This is not needed if we don't rely on googleapis language-specific rules.
-#load("@com_google_googleapis//:repository_rules.bzl", "switched_rules_by_language")
-#switched_rules_by_language(
-#    name = "com_google_googleapis_imports",
-#    gapic = True,
-#    grpc = True,
-#    java = True,
-#)
+load("@com_google_googleapis//:repository_rules.bzl", "switched_rules_by_language")
+switched_rules_by_language(
+    name = "com_google_googleapis_imports",
+)
 
 # This is to satisfy com_google_googleapis usage of protobuf
 http_archive(
